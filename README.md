@@ -53,7 +53,8 @@ Navigate to the backend folder and run:
 
 cd Qr_code_ticket_booking
 ./mvnw spring-boot:run
-Or if you have Maven installed globally:
+        Or 
+if you have Maven installed globally:
 
 mvn spring-boot:run
 The backend will start on: http://localhost:8080
