@@ -21,12 +21,14 @@ This is a full-stack ticket booking application where users can book tickets for
 - Clean and responsive UI  
 
 ---
+```bash
 
 ## 🛠️ Installation Steps
 
 Follow these steps to set up the project on your local system:
 
-## 1) Clone the repository
+1) Clone the repository
+
 
 git clone https://github.com/Vishnuvarman007/Qr_code_ticket_booking
 cd Qr_code_ticket_booking
@@ -34,8 +36,7 @@ npm install
 npm start
 
 
-
-## 2) Set Up MySQL Database
+2) Set Up MySQL Database
 Open MySQL and create a new database:
 
 CREATE DATABASE ticket_booking_db;
@@ -48,13 +49,12 @@ spring.datasource.password=your_mysql_password
 spring.jpa.hibernate.ddl-auto=update
 
 
-## 3) Run the Backend (Spring Boot)
+3) Run the Backend (Spring Boot)
 Navigate to the backend folder and run:
 
 cd Qr_code_ticket_booking
 ./mvnw spring-boot:run
-        Or 
-if you have Maven installed globally:
+Or if you have Maven installed globally:
 
 mvn spring-boot:run
 The backend will start on: http://localhost:8080
