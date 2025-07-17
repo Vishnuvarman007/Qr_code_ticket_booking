@@ -1,0 +1,87 @@
+/* Container for the entire welcome page */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* Content section */
+.welcome-content {
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #dcdcdccc;
+}
+
+.extra-info {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #cfcfcfbb;
+  line-height: 1.5;
+}
+
+/* Styled primary button */
+.btn-primary {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 12px rgba(255, 111, 97, 0.6);
+}
+
+.btn-primary:hover {
+  background-color: #ff3b2e;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 59, 46, 0.7);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .welcome-container {
+    flex-direction: row;
+    text-align: left;
+    padding: 80px 60px;
+  }
+
+  .welcome-content {
+    margin-bottom: 0;
+    margin-right: 60px;
+  }
+
+  .welcome-image img {
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  }
+}
