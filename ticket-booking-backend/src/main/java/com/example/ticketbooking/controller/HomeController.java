@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "Welcome to th Ticket Booking API!";
+        return "Welcome to the Ticket Booking API!";
     }
 }
