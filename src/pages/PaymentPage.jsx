@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {QRCodeSVG} from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 import '../components/PaymentPage.css'; // Adjust the path as necessary
- // Import CSS
+// Import CSS
 
 export default function PaymentPage() {
   const navigate = useNavigate();
@@ -88,27 +88,29 @@ export default function PaymentPage() {
       <section aria-label="UPI payment options" className="payment-options">
         <h2>Pay Using UPI Apps</h2>
 
-        {!isMobile && (
+        {isMobile ? (
+          <div className="upi-apps-grid">
+            {upiApps.map(({ name, package: pkg }) => {
+              const intentUri = `intent://${upiBaseUri.replace(/^upi:\/\//, '')}#Intent;scheme=upi;package=${pkg};end`;
+              return (
+                <a
+                  key={name}
+                  href={intentUri}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  aria-label={`Pay with ${name}`}
+                >
+                  {name}
+                </a>
+              );
+            })}
+          </div>
+        ) : (
           <div className="alert-warning" role="alert">
             <strong>Note:</strong> UPI deep links work only on mobile devices. Use QR code or manual payment below.
           </div>
         )}
-
-        {upiApps.map(({ name, package: pkg }) => {
-          const intentUri = `intent://${upiBaseUri.replace(/^upi:\/\//, '')}#Intent;scheme=upi;package=${pkg};end`;
-          return (
-            <a
-              key={name}
-              href={intentUri}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-              aria-label={`Pay with ${name}`}
-            >
-              Pay with {name}
-            </a>
-          );
-        })}
 
         <hr />
 
@@ -124,9 +126,11 @@ export default function PaymentPage() {
         </a>
 
         {!isMobile && (
-          <div className="qr-code-container">
+          <div className="qr-code-wrapper">
             <h4>Scan QR Code</h4>
-            <QRCodeSVG value={upiBaseUri} size={200} />
+            <div className="qr-code-container">
+              <QRCodeSVG value={upiBaseUri} size={200} />
+            </div>
           </div>
         )}
 
@@ -159,8 +163,8 @@ export default function PaymentPage() {
           {loading
             ? 'Verifying payment...'
             : paymentStatus === 'confirmed'
-            ? 'Payment Confirmed! Redirecting...'
-            : 'I Have Paid'}
+              ? 'Payment Confirmed! Redirecting...'
+              : 'I Have Paid'}
         </button>
 
         {paymentStatus === 'error' && (

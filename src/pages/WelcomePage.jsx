@@ -10,6 +10,9 @@ export default function WelcomePage() {
 
   return (
     <div className="welcome-container">
+      <div className="floating-circle" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }}></div>
+      <div className="floating-circle" style={{ width: '400px', height: '400px', bottom: '10%', right: '5%', animationDelay: '-10s' }}></div>
+      
       <div className="welcome-content">
         <h1>Welcome to the Ticket Booking Portal</h1>
         <p className="subtitle">
@@ -21,10 +24,6 @@ export default function WelcomePage() {
         <button onClick={handleStart} className="btn-primary">
           Book Now
         </button>
-      </div>
-      <div className="welcome-image">
-        {/* Optional: You can add an image here */}
-        {/* <img src="/images/tickets.png" alt="Tickets" /> */}
       </div>
     </div>
   );
